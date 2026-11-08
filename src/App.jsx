@@ -3,6 +3,7 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import Counter from './Counter.jsx'
 
 function App() {
   const [count, setCount] = useState(100)
@@ -28,6 +29,8 @@ function App() {
         >
           Count is {count}
         </button>
+        <Counter label="点赞" />
+        <Counter label="点踩" />
       </section>
 
       <div className="ticks"></div>
