@@ -4,9 +4,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import Counter from './Counter.jsx'
+import BillItem from './BillItem.jsx'
 
 function App() {
   const [count, setCount] = useState(100)
+  const bills=[
+    { id:1 , type:'支出' , amount:25 , note:'午餐'},
+    { id: 2, type: '收入', amount: 1500, note: '家教' },
+    { id: 3, type: '支出', amount: 7, note: '奶茶' },
+    { id: 4, type: '支出', amount: 11.5, note: '晚餐' },
+  ]
 
   return (
     <>
@@ -31,6 +38,9 @@ function App() {
         </button>
         <Counter label="点赞" />
         <Counter label="点踩" />
+        {bills.map(b=>(
+          <BillItem key={b.id} type={b.type} amount={b.amount} note={b.note} />
+        ))}
       </section>
 
       <div className="ticks"></div>
