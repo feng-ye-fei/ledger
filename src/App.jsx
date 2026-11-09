@@ -8,15 +8,40 @@ import BillItem from './BillItem.jsx'
 
 function App() {
   const [count, setCount] = useState(100)
-  const bills=[
+  const [note,setNote]=useState('')
+  const [amount,setAmount]=useState('')
+  const [bills,setBills]=useState([
     { id:1 , type:'支出' , amount:25 , note:'午餐'},
     { id: 2, type: '收入', amount: 1500, note: '家教' },
     { id: 3, type: '支出', amount: 7, note: '奶茶' },
     { id: 4, type: '支出', amount: 11.5, note: '晚餐' },
-  ]
+  ])
+
+  function addBill(){
+    if(note===''||amount===''){
+      alert('备注和金额都要填！')
+      return
+    }
+    const newBill={
+      id:Date.now(),// 用当前时间戳当唯一 id
+      type:'支出',
+      amount:amount,
+      note:note,
+    }
+    setBills([...bills,newBill])// 换新格子 → 列表自动多一条
+    // 清空输入框
+    setNote('')
+    setAmount('')
+  }
 
   return (
     <>
+      <div>
+        <input value={note} onChange={e=>setNote(e.target.value)} placeholder="备注（如：午餐）" />
+        <input value={amount} onChange={e=>setAmount(e.target.value)} placeholder="金额" type='number'/>
+        <button type='button' onClick={addBill}>记一笔</button>
+      </div>
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
