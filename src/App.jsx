@@ -53,23 +53,33 @@ function App() {
   },[bills])
 
   return (
-    <>
-      <div>
-        <input value={note} onChange={e=>setNote(e.target.value)} placeholder="备注（如：午餐）" />
-        <input value={amount} onChange={e=>setAmount(e.target.value)} placeholder="金额" type='number'/>
-        <button type='button' onClick={()=>setType('支出')} className={type==='支出'?'active':''}>支出</button>
-        <button type='button' onClick={()=>setType('收入')} className={type==='收入'?'active':''}>收入</button>
-        <button type='button' onClick={addBill}>记一笔</button>
+    <><header className='top'>
+      <h1 className='title'>记帐本</h1>
+      <div className='summary-bar'>
+        <p>收入{totalIncome}元 · 支出{totalExpense}元 · <span className='summary-item'>结余<span className={balance>0?'zhengshu':'fushu'}>{balance}</span>元</span></p>
       </div>
+    </header>
+    <main>
+      <section className='form-row'>
+        <div className='left'>
+          <input value={note} onChange={e=>setNote(e.target.value)} placeholder="备注（如：午餐）" className='note'/>
+          <input value={amount} onChange={e=>setAmount(e.target.value)} placeholder="金额" type='number' className='amount'/>
+          <button type='button' onClick={()=>setType('支出')} className={type==='支出'?'active':'btn'}>支出</button>
+          <button type='button' onClick={()=>setType('收入')} className={type==='收入'?'active':'btn'}>收入</button>
+        </div>
+        <div className='right'>
+          <button type='button' onClick={addBill} className='jybbtn'>记一笔</button>
+        </div>
+      </section>
+      <section className="bill-list">
+        {/* <Counter label="点赞" />
+        <Counter label="点踩" /> */}
 
-      <section id="center">
-        <Counter label="点赞" />
-        <Counter label="点踩" />
-        <p>收入{totalIncome}元 · 支出{totalExpense}元 · 结余{balance}元</p>
         {bills.map(b=>(
           <BillItem key={b.id} type={b.type} amount={b.amount} note={b.note} onDelete={()=>deleteBill(b.id)}/>
         ))}
       </section>
+    </main>
     </>
   )
 }

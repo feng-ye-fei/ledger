@@ -1,9 +1,11 @@
 function BillItem({type,amount,note,onDelete}){
     return(
-        <div>
-            <span>{note}</span>
-            <span>{type==='支出'?'-':'+'}{amount} 元</span>
-            <button type="button" onClick={onDelete}>删除</button>
+        <div className={type==='支出'?'expense':'income'}>
+            <div className="left">
+                <span> {note} </span>
+                <span> {type==='支出'?'-':'+'} <span className="amount">{amount}</span> 元 </span>
+            </div>
+            <button className="deletebtn" type="button" onClick={onDelete}> 删除 </button>
         </div>
     )
 }
