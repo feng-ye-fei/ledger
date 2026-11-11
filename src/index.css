@@ -7,13 +7,13 @@
   --zhengshu:rgb(71, 205, 71);
   --expense:#fdf2f2;
   --income:#f2faf4;
-  --zhichucolor:#bb3838;
-  --shourucolor:#278042;
+  --expense-color:#bb3838;
+  --income-color:#278042;
   --btn:#423a33;
   --text:#fff;
   --hover:rgb(54, 156, 20);
   --delete-hover:#f00;
-  --fushu:#f00;
+  --negative:#f00;
 }
 
 /* 主体默认样式 */

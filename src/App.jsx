@@ -72,7 +72,7 @@ function App() {
           <button type='button' onClick={()=>setType('收入')} className={type==='收入'?'active':'btn'}>收入</button>
         </div>
         <div className='right'>
-          <button type='button' onClick={addBill} className='jybbtn'>记一笔</button>
+          <button type='button' onClick={addBill} className='submit-btn'>记一笔</button>
         </div>
       </section>
       <section className="bill-list">
