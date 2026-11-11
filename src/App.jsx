@@ -1,9 +1,5 @@
 import { useState,useEffect } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
-import Counter from './Counter.jsx'
 import BillItem from './BillItem.jsx'
 
 const DEFAULT_BILLS = [
@@ -18,8 +14,12 @@ function App() {
   const [amount,setAmount]=useState('')
   const [type,setType]=useState('支出')
   const [bills,setBills]=useState(()=>{
-    const saved=localStorage.getItem('bills')
-    return saved?JSON.parse(saved):DEFAULT_BILLS
+    try{
+      const saved=localStorage.getItem('bills')
+      return saved?JSON.parse(saved):DEFAULT_BILLS
+    }catch(e){
+      return DEFAULT_BILLS// 数据坏了就用出厂数据，不让页面死
+    }
   })
 
   const totalIncome=bills.filter(b=>b.type==='收入').reduce((sum,b)=>sum+b.amount,0)
@@ -76,9 +76,6 @@ function App() {
         </div>
       </section>
       <section className="bill-list">
-        {/* <Counter label="点赞" />
-        <Counter label="点踩" /> */}
-
         {bills.map(b=>(
           <BillItem key={b.id} type={b.type} amount={b.amount} note={b.note} onDelete={()=>deleteBill(b.id)}/>
         ))}
