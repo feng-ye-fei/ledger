@@ -1,10 +1,10 @@
 /* 全局颜色配置 */
 :root{
   --bg:#faf7f2;
-  --summary:#ee960ad8;
   --form-row:#e5e0d8;
   --list:#fef9f2;
 
+  --zhengshu:rgb(71, 205, 71);
   --expense:#fdf2f2;
   --income:#f2faf4;
   --zhichucolor:#bb3838;

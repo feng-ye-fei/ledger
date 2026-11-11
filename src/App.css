@@ -17,13 +17,19 @@ button:hover{
 
 /* 汇总 */
 .summary-bar{
-  padding: 5px;
-  background-color: var(--summary);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 /* 结余字体 */
 .summary-item{
   font-size: 28px;
+}
+
+.zhengshu{
+  color: var(--zhengshu);
 }
 
 /* 结余负数警告 */
@@ -33,16 +39,11 @@ button:hover{
 
 /* 表单 */
 .form-row{
+  display: flex;
+  justify-content: space-between;
   margin: 20px 0;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--form-row);
-}
-
-/* 表单左侧区域 */
-.form-row .left{
-  padding: 10px;
-  display: flex;
-  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -61,7 +62,24 @@ button:hover{
   font-weight: 700;
 }
 
-/* 表单右边 */
+/* 表单左侧两个输入框 */
+.form-row .left{
+  padding: 10px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 表单中间的两个按钮 */
+.form-row .center{
+  padding: 10px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* 表单右侧的记一笔按钮 */
 .form-row .right{
   display: flex;
   justify-content: flex-end;
@@ -94,7 +112,8 @@ button:hover{
 }
 
 .expense .amount{
-  background-color: var(--zhichucolor);
+  border: none;
+  color: var(--zhichucolor);
 }
 
 /* 收入区域 */
@@ -103,7 +122,8 @@ button:hover{
 }
 
 .income .amount{
-  background-color: var(--shourucolor);
+  border: none;
+  color: var(--shourucolor);
 }
 
 /* 删除按钮 */
@@ -119,16 +139,10 @@ button:hover{
 
 @media (max-width:480px){
   /* 结余字体显示 */
-  .summary-item, .fushu { 
+  .summary-item{ 
     font-size: 20px; 
   }
-  /* 表单左侧区域 */
-  .form-row .left{
-    padding: 10px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  /* 两个输入框 */
   .note,.amount{
     flex: 1;
     min-width: 110px;

@@ -56,7 +56,9 @@ function App() {
     <><header className='top'>
       <h1 className='title'>记帐本</h1>
       <div className='summary-bar'>
-        <p>收入{totalIncome}元 · 支出{totalExpense}元 · <span className='summary-item'>结余<span className={balance>0?'zhengshu':'fushu'}>{balance}</span>元</span></p>
+        <div>收入 {totalIncome} 元</div>
+        <div>支出 {totalExpense} 元</div>
+        <div className="summary-item">结余 <span className={balance>0?'zhengshu':'fushu'}>{balance} </span>元</div>
       </div>
     </header>
     <main>
@@ -64,6 +66,8 @@ function App() {
         <div className='left'>
           <input value={note} onChange={e=>setNote(e.target.value)} placeholder="备注（如：午餐）" className='note'/>
           <input value={amount} onChange={e=>setAmount(e.target.value)} placeholder="金额" type='number' className='amount'/>
+        </div>
+        <div className='center'>
           <button type='button' onClick={()=>setType('支出')} className={type==='支出'?'active':'btn'}>支出</button>
           <button type='button' onClick={()=>setType('收入')} className={type==='收入'?'active':'btn'}>收入</button>
         </div>
