@@ -58,7 +58,7 @@ function App() {
       <div className='summary-bar'>
         <div>收入 {totalIncome} 元</div>
         <div>支出 {totalExpense} 元</div>
-        <div className="summary-item">结余 <span className={balance>0?'zhengshu':'fushu'}>{balance} </span>元</div>
+        <div className="summary-item">结余 <span className={balance>0?'zhengshu':'negative'}>{balance} </span>元</div>
       </div>
     </header>
     <main>
